@@ -1,0 +1,94 @@
+\usepackage[a4paper,top=2cm, bottom=2cm, left=3cm, right=1.5cm]{geometry} %Настройка полей документа
+\linespread{1.5}
+\usepackage{xecyr}
+\usepackage{mathtext}
+\usepackage{amsmath, amsfonts, amssymb}%Математические вкусности (нумерованные формулы)
+\usepackage{mathtools}%Прямое указание типа дробей и прочее
+\usepackage{etoolbox}
+\usepackage[utf8]{inputenc}%включаем свою кодировку: koi8-r или utf8 в UNIX, cp1251 в Windows
+\usepackage[english,russian]{babel}	
+\usepackage[final,expansion=true]{microtype}
+\setmainfont{Times New Roman}%Основной шрифт
+\setsansfont{CMU Sans Serif}%Шрифт без засечек (для выделения)
+\setmonofont{CMU Typewriter Text}%Моноширинный шрифт (Для кода)
+\DeclareSymbolFont{letters}{\encodingdefault}{\rmdefault}{m}{m}%Магия прямого шрифта в индексах и кирилиццы в них же. Для замены прямого на курсив, поменять вторую m на it
+\usepackage{graphicx}%Вставка картинок правильная
+\graphicspath{ {./images/} }%путь к папки с картинками
+\usepackage{wrapfig}%Обтекание фигур (таблиц, картинок и прочего)
+\usepackage[export]{adjustbox}%Обрезка, подгонка картинок
+\usepackage{longtable}%Многостраничные таблицы
+\RequirePackage{caption}
+\DeclareCaptionLabelSeparator{defffis}{ --- } %Разделитель в подписях к рисункам
+\captionsetup{justification=centering,labelsep=defffis}
+\usepackage{subfig} % Подкартинки, с собственными подписями и ссылками
+\usepackage{tikz}%Встроенная рисовалка
+\usetikzlibrary{calc,shapes,arrows,chains,fit}%Библиотеки для рисовалки. DSP требует установки отдельно http://www.texample.net/tikz/examples/fir-filter/
+\usepackage{pgfplots}%Встроенная чертилка. Работает внутри рисовалки.
+\tikzset{every picture/.style={line width=1pt}}%Смена толщины линий на более толстые
+\tikzset{
+	ultra thin/.style= {line width=0.2pt},
+	very thin/.style= {line width=0.4pt},
+	thin/.style= {line width=1pt},% 0.4 thin is the default
+	semithick/.style= {line width=1.3pt},
+	thick/.style= {line width=1.6pt},
+	very thick/.style= {line width=2pt},
+	ultra thick/.style={line width=2.5pt}
+}
+\usepackage{pgfplotstable}%Черчение данных из файлов
+\usepgfplotslibrary{groupplots}%Множественные графики. График над графиком.
+\usetikzlibrary{external} %Ускоряет сборку документов с картинками (?)
+%\pagenumbering{gobble}%Когда включено, отключает нумерацию страниц
+\usepackage{lscape}%Вставка страниц в ландшафтной ориентации
+\usepackage{pdflscape}%Корректная работа ландафтных страниц в PDF
+\usepackage{hyperref} %Поддержка ссылок в PDF. Делает все ссылки в PDF рабочими
+\usepackage[russian]{cleveref} %Умные ссылки -- \cref{fig:123} ссылается на картинку, "рис. 123". Умеет ссылки на список, причем умные
+\usepackage{indentfirst} % отделять первую строку раздела абзацным отступом
+\setlength\parindent{5ex}
+\usepackage{url}
+
+\usepackage[tableposition=top,singlelinecheck=false, justification=centering]{caption}
+\usepackage{subcaption}
+%  маркированные списки
+\renewcommand{\labelitemi}{--}
+\renewcommand{\labelitemii}{--}
+%  нумерованные списки
+\renewcommand{\labelenumi}{\asbuk{enumi})}
+\renewcommand{\labelenumii}{\arabic{enumii})}
+
+% номер сноски со скобкой
+\renewcommand*{\thefootnote}{\arabic{footnote})}
+\renewcommand{\footnoterule}{%
+	\kern -3pt
+	\hrule width 40mm height .4pt
+	\kern 2.6pt
+}
+
+
+\renewcommand{\figurename}{Рисунок} % Рис -> Рисунок
+\usepackage[labelfont=normalfont,figurename={Рисунок},figurewithin=none]{caption}
+%иллюстрации и таблицы
+\DeclareCaptionLabelFormat{gostfigure}{Рисунок #2}
+\DeclareCaptionLabelFormat{gosttable}{Таблица #2}
+\DeclareCaptionLabelSeparator{gost}{~---~}
+\captionsetup{labelsep=gost}
+\captionsetup*[figure]{labelformat=gostfigure}
+\captionsetup*[table]{labelformat=gosttable}
+\renewcommand{\thesubfigure}{\asbuk{subfigure}}
+
+\renewcommand{\theenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumi}{\arabic{enumi}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumii}{.\arabic{enumii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumii}{\arabic{enumi}.\arabic{enumii}.}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\theenumiii}{.\arabic{enumiii}}% Меняем везде перечисления на цифра.цифра
+\renewcommand{\labelenumiii}{\arabic{enumi}.\arabic{enumii}.\arabic{enumiii}.}% Меняем везде перечисления на цифра.цифра
+
+
+
+
+\usepackage{listings}
+\lstset{
+	frame=single,
+	breaklines=true
+}
+
+\usepackage[normalem]{ulem}
